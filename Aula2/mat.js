@@ -20,9 +20,15 @@ function Multiplicação(){
     return res
 }
 function Divisão(){
+    document.getElementById("n8").style.bolder = "1px solid black"
     var numero7 = parseFloat(document.getElementById("n7").value)
     var numero8 = parseFloat(document.getElementById("n8").value)
     var res = document.getElementById("result")
-    res.textContent = numero7 / numero8
+    if(numero8 !== 0){
+        res.textContent = (numero7 / numero8).toFixed(1)
+    }else{
+        res.innerHTML = "Não é permitido divisão por 0"
+        document.getElementById("n8").style.border = "2px solid red"
+    }
     return res
 }
