@@ -32,3 +32,73 @@ function Divisão(){
     }
     return res
 }
+function IMC(){
+    var peso = parseFloat(document.getElementById("peso").value)
+    var altura = parseFloat(document.getElementById("altura").value)
+    var resPeso = document.getElementById("resPeso")
+    var msgIMC = document.getElementById("msgIMC")
+    var res = (altura*altura) / peso  
+
+    if(isNaN(peso) || isNaN(altura)){
+        resposta.textContent = "Digite apenas números"
+        document.getElementById("msg").textContent = " "
+        return
+    }
+    var IMC = (peso / (altura * altura)).toFixed(2)
+    resposta.innerHTML = IMC
+
+    IMC = parseFloat(IMC)
+
+
+    if(res >= 40.0){
+        resPeso.textContent = res
+        msgIMC.textContent = "Obesidade grau III"
+    }
+    else if(res <= 39.9 && res >= 35.0){
+        resPeso.textContent = res
+        msgIMC.textContent = "Obesidade grau II"
+    }
+    else if(res <= 34.9 && res >= 30.0){
+        resPeso.textContent = res
+        msg.textContent = "Obesidade grau I"
+    }
+    else if(res <= 29.9 && res >= 25.0){
+        resPeso.textContent = res
+        msgIMC.textContent = "Sobrepreso"
+    }
+    else if(res <= 24.9 && res >= 18.6) {
+        resPeso.textContent = res
+        msgIMC.textContent = "Normal"
+    }
+    else{
+        resPeso.textContent = res
+        msgIMC.textContent = "Abaixo do normal"
+    }
+}
+
+function verif(){
+    
+    var ano = parseFloat(document.getElementById("ano").value)
+    var resIdade = document.getElementById("resIdade")
+    var msgIdade = document.getElementById("msgIdade")
+    const thisYear = new Date().getFullYear();
+    const res = thisYear - ano
+
+    if(isNaN(ano)){
+        res.textContent = "Type only number 🚫"
+        res.style.color = "red"
+        return
+    }
+
+    
+
+    if(res >= 18){
+    resIdade.textContent = res
+    msgIdade.textContent = "Permitida a entrada"
+    }else{
+    resIdade.textContent = res
+    msgIdade.textContent = "Entrada negada"
+    }
+}
+
+
